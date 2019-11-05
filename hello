@@ -1,0 +1,121 @@
+#!/bin/bash
+
+
+# functions for script
+############################################
+
+function feeling {
+
+
+read MY_FEELING
+
+	if [[ $MY_FEELING  = "good" ]];
+then 
+	#if user is good, displays happy message
+	#########################################
+	clear
+	echo
+	echo "Glad to hear that!"
+	echo ====================================
+	echo
+elif [[ $MY_FEELING = "bad" ]];
+then
+	# if user is bad, displays apology message
+	##########################################
+	clear
+	echo
+	echo "I am sorry to hear that!"
+	echo ====================================
+	echo
+else
+	echo
+	echo "I do not understand!"
+	echo "Please try again $MY_NAME!"
+	echo ====================================
+	echo
+	feeling
+
+
+fi
+
+}
+# introduction
+##############################################
+
+clear
+echo "Hello"
+echo
+echo "What is your name?"
+echo ====================================
+echo
+read MY_NAME
+echo
+echo "Hello $MY_NAME - How are you today?"
+echo ====================================
+echo
+# asking how user is - uses function feeling
+###############################################
+feeling
+
+# displays date and gives user options on what to do
+#######################################################
+echo
+echo "Today is:" && date +"%A, %b %-d, %Y"
+echo ====================================
+echo
+echo "What can I do for you, $MY_NAME?"
+echo "Please input a number."
+echo ====================================
+echo
+echo "1. Display working directory"
+echo ====================================
+echo
+echo "2. Create new directory with your name,"
+echo $MY_NAME
+echo ====================================
+echo
+echo "3. Exit program."
+echo ====================================
+echo
+read INPUT_NUMBER
+if [[ $INPUT_NUMBER = "1" ]]; 
+then
+	# if input is 1 displays the current working directory
+	# and displays a list of directories & files in CWD
+#################################################################
+	echo "This is your current directory"
+	echo "and a list of all contents."
+	echo
+	pwd; echo; ls -lh
+elif [[ $INPUT_NUMBER = "2" ]];
+
+	# if input is 2 makes directory in a subdirectory
+	# of home called Script_Directories
+##################################################################
+then mkdir ~/Desktop/$MY_NAME
+	 echo "Your directory was made in"
+	 echo "the Desktop directory"
+else
+	# if input is 3 or anything other than 1 or 2
+	# user is prompted to have a good day
+	# exits script
+##################################################################
+	echo "Have a good day $MY_NAME!"
+	exit
+
+fi
+echo
+echo
+echo "Anything else, $MY_NAME?"
+echo ====================================
+read INPUT_ANSWER
+if [[ $INPUT_ANSWER = "yes" ]]; 
+then
+	echo "?"
+else
+	clear
+	echo "Thank you!"
+	exit
+fi
+
+
