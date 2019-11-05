@@ -89,8 +89,8 @@ then
 	pwd; echo; ls -lh
 elif [[ $INPUT_NUMBER = "2" ]];
 
-	# if input is 2 makes directory in a subdirectory
-	# of home called Script_Directories
+	# if input is 2 makes directory on Desktop
+	# 
 ##################################################################
 then mkdir ~/Desktop/$MY_NAME
 	 echo "Your directory was made in"
