@@ -76,8 +76,7 @@ echo "1. Display working directory"
 echo ====================================
 sleep 1
 echo
-echo "2. Create new directory with your name,"
-echo $MY_NAME
+echo "2. Create new directory with your name"
 echo ====================================
 sleep 1
 echo
@@ -103,10 +102,12 @@ elif [[ $INPUT_NUMBER = "2" ]];
 	# if input is 2 makes directory on Desktop
 	# 
 ##################################################################
-then mkdir ~/Desktop/$
+then mkdir ~/Desktop/$MY_NAME
 	 sleep 1
 	 echo "Your directory was made in"
-	 echo "the Desktop directory"
+	 echo "the Desktop directory."
+	 sleep 1
+	 echo "It will be labeled $MY_NAME."
 else
 	# if input is 3 or anything other than 1 or 2
 	# user is prompted to have a good day
