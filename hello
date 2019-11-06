@@ -9,38 +9,41 @@
 #function that creates variable MY_FEELING
 ##########################################
 function feeling {
-	
-	#takes input and defines MY_FEELING variable
-	############################################
-	read MY_FEELING
-	#if user answers good, displays happy message
-	#############################################
-	if [[ $MY_FEELING  = "good" ]]
-	then
+
+#takes input and defines MY_FEELING variable
+############################################
+read MY_FEELING
+#if user answers good, displays happy message
+#############################################
+case $MY_FEELING in
+
+	good | Good)
 		clear
 		echo
 		echo "Glad to hear that!"
 		echo ====================================
 		sleep 2
-	#if user answers bad, displays apology message
-	##############################################
-	elif [[ $MY_FEELING = "bad" ]]
-	then
+		;;
+#if user answers bad, displays apology message
+##############################################
+	bad | Bad)
 		clear
 		echo
 		echo "I am sorry to hear that!"
 		echo ====================================
 		sleep 2
-	# if user gives undefined answer will ask to try again
-	######################################################
-	else
+		;;
+# if user gives undefined answer will ask to try again
+######################################################	
+	*)
 		echo
 		echo "I do not understand!"
 		echo "Please try again, $MY_NAME!"
 		echo ====================================
 		sleep 2
 		feeling
-	fi
+		;;
+esac
 }
 
 #function that displays an option list for input
@@ -51,7 +54,8 @@ function optionslist {
 	echo ====================================
 	sleep 1
 	echo
-	echo "2. Create new directory with your name"
+	echo "2. Create new directory named"
+	echo "             \"$MY_NAME\"    "
 	echo ====================================
 	sleep 1
 	echo
