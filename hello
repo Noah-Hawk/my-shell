@@ -136,13 +136,14 @@ fi
 
 }
 
-################################################
-################################################
-################################################
+#end of functions
+#################
+#################
+#################
 
 
-# introduction
-##############################################
+#introduction
+#############
 
 clear
 echo "Hello"
@@ -159,12 +160,12 @@ echo
 echo "Hello $MY_NAME - How are you today?"
 echo ====================================
 echo
-# asking how user is - uses function feeling
-###############################################
+#asking how user is - uses function feeling
+############################################
 feeling
 
-# displays date and gives user options on what to do
-#######################################################
+#displays date and gives user options on what to do
+###################################################
 echo
 echo "Today is:" && date +"%A, %b %-d, %Y"
 echo ====================================
