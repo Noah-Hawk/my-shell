@@ -5,66 +5,68 @@
 ######################
 ######################
 
+# Makes it quicker and easier for you to create bars in the future.
+function bars { echo "===================================="; }
 
 #function that creates variable MY_FEELING
 ##########################################
 function feeling {
 
-#takes input and defines MY_FEELING variable
-############################################
-read MY_FEELING
-#if user answers good, displays happy message
-#############################################
-case $MY_FEELING in
+	#takes input and defines MY_FEELING variable
+	############################################
+	read MY_FEELING
+	#if user answers good, displays happy message
+	#############################################
+	case $MY_FEELING in
 
-	good | Good)
-		clear
-		echo
-		echo "Glad to hear that!"
-		echo ====================================
-		sleep 2
-		;;
-#if user answers bad, displays apology message
-##############################################
-	bad | Bad)
-		clear
-		echo
-		echo "I am sorry to hear that!"
-		echo ====================================
-		sleep 2
-		;;
-# if user gives undefined answer will ask to try again
-######################################################	
-	*)
-		echo
-		echo "I do not understand!"
-		echo "Please try again, $MY_NAME!"
-		echo ====================================
-		sleep 2
-		feeling
-		;;
-esac
+		[gG]ood)
+			clear
+			echo
+			echo "Glad to hear that!"
+			bars
+			sleep 2
+			;;
+	#if user answers bad, displays apology message
+	##############################################
+		[bB]ad)
+			clear
+			echo
+			echo "I am sorry to hear that!"
+			bars
+			sleep 2
+			;;
+	# if user gives undefined answer will ask to try again
+	######################################################
+		*)
+			echo
+			echo "I do not understand!"
+			echo "Please try again, $MY_NAME!"
+			bars
+			sleep 2
+			feeling
+			;;
+	esac
 }
 
 #function that displays an option list for input
 ################################################
 function optionslist {
-	
+
 	echo "1. Display working directory"
-	echo ====================================
+	bars
 	sleep 1
 	echo
 	echo "2. Create new directory named"
 	echo "             \"$MY_NAME\"    "
-	echo ====================================
+	bars
 	sleep 1
 	echo
 	echo "3. Exit program."
-	echo ====================================
+	bars
 	echo
 	sleep 1
 	echo "Please input a number."
-	echo ====================================
+	bars
 	#input creates INPUT_NUMBER variable
 	####################################
 	read INPUT_NUMBER
@@ -73,53 +75,51 @@ function optionslist {
 #takes variable INPUT_NUMBER and interprets it
 ##############################################
 function options {
-	if :
-	then
-	
-		case $INPUT_NUMBER in
-			1)
-				#if input is 1 displays the current working directory
-				#and displays a list of directories & files in CWD
-				#####################################################
-				echo
-				sleep 2
-				echo "This is your current directory"
-				echo "and a list of all contents."
-				echo ====================================
-				sleep 1
-				echo
-				pwd; sleep 1; echo; ls -lh
-				anything
-				;;
-			2)
-				#if input is 2 makes directory on Desktop
-				#########################################
-				mkdir ~/Desktop/$MY_NAME
-	 			sleep 1
-	 			echo "Your directory was made in"
-	 			echo "the Desktop directory."
-	 			sleep 1
-	 			echo "It will be labeled $MY_NAME."
-	 			echo ====================================
-	 			anything
-	 			;;
-	 		3)
-				#if input is 3
-				#user is prompted to have a great day
-				#exits script
-				#####################################
-				echo "Have a great day $MY_NAME!"
-	 			sleep 2
-				exit
-				;;
-		esac
-	fi
+
+	case "$INPUT_NUMBER" in
+		1)
+			#if input is 1 displays the current working directory
+			#and displays a list of directories & files in CWD
+			#####################################################
+			echo
+			sleep 2
+			echo "This is your current directory"
+			echo "and a list of all contents."
+			bars
+			sleep 1
+			echo
+			pwd; sleep 1; echo; ls -lh
+			anything
+			;;
+		2)
+			#if input is 2 makes directory on Desktop
+			#########################################
+			mkdir ~/Desktop/$MY_NAME
+ 			sleep 1
+ 			echo "Your directory was made in"
+ 			echo "the Desktop directory."
+ 			sleep 1
+ 			echo "It will be labeled $MY_NAME."
+ 			bars
+ 			anything
+ 			;;
+ 		3)
+			#if input is 3
+			#user is prompted to have a great day
+			#exits script
+			#####################################
+			echo "Have a great day $MY_NAME!"
+ 			sleep 2
+			exit
+			;;
+	esac
 }
 
 function anything {
+
 	echo
 	echo "Anything else, $MY_NAME?"
-	echo ====================================
+	bars
 	read INPUT_ADDITION
 	if [[ $INPUT_ADDITION = "yes" ]];
 	then
@@ -129,7 +129,7 @@ function anything {
 	else
 		echo
 		echo "Have a wonderful day $MY_NAME!"
-		echo ====================================
+		bars
 		sleep 2
 		exit
 	fi
@@ -151,14 +151,14 @@ sleep 3
 echo
 echo
 echo "What is your name?"
-echo ====================================
+bars
 echo
 read MY_NAME
 sleep 3
 echo
 echo
 echo "Hello, $MY_NAME - How are you today?"
-echo ====================================
+bars
 echo
 #asking how user is - uses function feeling
 ############################################
@@ -168,11 +168,11 @@ feeling
 ###################################################
 echo
 printf "Today is: %(%A, %b %-d, %Y)T\n" -1
-echo ====================================
+bars
 sleep 3
 echo
 echo "What can I do for you, $MY_NAME?"
-echo ====================================
+bars
 sleep 1
 echo
 optionslist
