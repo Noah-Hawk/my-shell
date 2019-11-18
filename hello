@@ -57,7 +57,7 @@ function optionslist {
 	sleep 1
 	echo
 	echo "2. Create new directory named"
-	echo "             \"$MY_NAME\"    "
+	echo  "          \"$MY_NAME\"      "
 	bars
 	sleep 1
 	echo
@@ -65,7 +65,7 @@ function optionslist {
 	bars
 	echo
 	sleep 1
-	echo "Please input a number."
+	echo "Please select an option."
 	bars
 	#input creates INPUT_NUMBER variable
 	####################################
@@ -110,6 +110,7 @@ function options {
 			#####################################
 			echo "Have a great day $MY_NAME!"
  			sleep 2
+ 			clear
 			exit
 			;;
 	esac
@@ -131,6 +132,7 @@ function anything {
 		echo "Have a wonderful day $MY_NAME!"
 		bars
 		sleep 2
+		clear
 		exit
 	fi
 
@@ -168,8 +170,9 @@ feeling
 ###################################################
 echo
 printf "Today is: %(%A, %b %-d, %Y)T\n" -1
+printf "The time is: " && date +"%r" 
 bars
-sleep 3
+sleep 5
 echo
 echo "What can I do for you, $MY_NAME?"
 bars
@@ -180,4 +183,5 @@ options
 echo
 echo
 sleep 2
+
 
