@@ -12,11 +12,11 @@
 
 # Makes it quicker and easier for you to create bars in the future.
 ###################################################################
-function bars { echo "===================================="; }
+function bars () { echo "===================================="; }
 
 # Function that creates variable MY_FEELING
 ###########################################
-function feeling {
+function feeling () {
 
 	# Takes input and defines MY_FEELING variable
 	#############################################
@@ -56,7 +56,7 @@ function feeling {
 
 # Function that displays an option list for input
 #################################################
-function optionslist {
+function optionslist () {
 
 	echo "1. Display working directory"
 	bars
@@ -80,7 +80,7 @@ function optionslist {
 
 # Takes variable INPUT_NUMBER and interprets it
 ###############################################
-function options {
+function options () {
 
 	case "$INPUT_NUMBER" in
 		1)
@@ -122,7 +122,7 @@ function options {
 	esac
 }
 
-function anything {
+function anything () {
 
 	echo
 	echo "Anything else, $MY_NAME?"
@@ -169,7 +169,7 @@ echo "Hello, $MY_NAME - How are you today?"
 bars
 echo
 # Asking how user is - uses function feeling
-############################################
+#############################################
 feeling
 
 # Displays date and gives user options on what to do
