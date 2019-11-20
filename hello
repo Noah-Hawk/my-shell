@@ -1,22 +1,28 @@
 #!/bin/bash
 
 
-#functions for script
+# This is a simple script for asking how a user is and
+#+ can perform simple functions 
+#######################################################
+
+
+# Functions for script
 ######################
 ######################
 
 # Makes it quicker and easier for you to create bars in the future.
+###################################################################
 function bars { echo "===================================="; }
 
-#function that creates variable MY_FEELING
-##########################################
+# Function that creates variable MY_FEELING
+###########################################
 function feeling {
 
-	#takes input and defines MY_FEELING variable
-	############################################
-	read MY_FEELING
-	#if user answers good, displays happy message
+	# Takes input and defines MY_FEELING variable
 	#############################################
+	read MY_FEELING
+	# If user answers good, displays happy message
+	##############################################
 	case $MY_FEELING in
 
 		[gG]ood)
@@ -26,8 +32,8 @@ function feeling {
 			bars
 			sleep 2
 			;;
-	#if user answers bad, displays apology message
-	##############################################
+	# If user answers bad, displays apology message
+	###############################################
 		[bB]ad)
 			clear
 			echo
@@ -35,7 +41,7 @@ function feeling {
 			bars
 			sleep 2
 			;;
-	# if user gives undefined answer will ask to try again
+	# If user gives undefined answer will ask to try again
 	######################################################
 		*)
 			echo
@@ -48,8 +54,8 @@ function feeling {
 	esac
 }
 
-#function that displays an option list for input
-################################################
+# Function that displays an option list for input
+#################################################
 function optionslist {
 
 	echo "1. Display working directory"
@@ -67,20 +73,20 @@ function optionslist {
 	sleep 1
 	echo "Please select an option."
 	bars
-	#input creates INPUT_NUMBER variable
-	####################################
+	# Input creates INPUT_NUMBER variable
+	#####################################
 	read INPUT_NUMBER
 }
 
-#takes variable INPUT_NUMBER and interprets it
-##############################################
+# Takes variable INPUT_NUMBER and interprets it
+###############################################
 function options {
 
 	case "$INPUT_NUMBER" in
 		1)
-			#if input is 1 displays the current working directory
-			#and displays a list of directories & files in CWD
-			#####################################################
+			# If input is 1 displays the current working directory
+			#+ and displays a list of directories & files in CWD
+			######################################################
 			echo
 			sleep 2
 			echo "This is your current directory"
@@ -92,8 +98,8 @@ function options {
 			anything
 			;;
 		2)
-			#if input is 2 makes directory on Desktop
-			#########################################
+			# If input is 2 makes directory on Desktop
+			##########################################
 			mkdir ~/Desktop/${MY_NAME}_DIR
  			sleep 1
  			echo "Your directory was made in"
@@ -104,10 +110,10 @@ function options {
  			anything
  			;;
  		3)
-			#if input is 3
-			#user is prompted to have a great day
-			#exits script
-			#####################################
+			# If input is 3
+			# User is prompted to have a great day
+			# Exits script
+			######################################
 			echo "Have a great day $MY_NAME!"
  			sleep 2
  			clear
@@ -138,14 +144,14 @@ function anything {
 
 }
 
-#end of functions
-#################
-#################
-#################
+# End of functions
+##################
+##################
+##################
 
 
-#introduction
-#############
+# Introduction
+##############
 
 clear
 echo "Hello"
@@ -162,12 +168,12 @@ echo
 echo "Hello, $MY_NAME - How are you today?"
 bars
 echo
-#asking how user is - uses function feeling
+# Asking how user is - uses function feeling
 ############################################
 feeling
 
-#displays date and gives user options on what to do
-###################################################
+# Displays date and gives user options on what to do
+####################################################
 echo
 printf "Today is: %(%A, %b %-d, %Y)T\n" -1
 printf "The time is: " && date +"%r" 
