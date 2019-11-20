@@ -57,7 +57,7 @@ function optionslist {
 	sleep 1
 	echo
 	echo "2. Create new directory named"
-	echo  "          \"$MY_NAME\"      "
+	echo  "          \"${MY_NAME}_DIR\"      "
 	bars
 	sleep 1
 	echo
@@ -94,12 +94,12 @@ function options {
 		2)
 			#if input is 2 makes directory on Desktop
 			#########################################
-			mkdir ~/Desktop/$MY_NAME
+			mkdir ~/Desktop/${MY_NAME}_DIR
  			sleep 1
  			echo "Your directory was made in"
  			echo "the Desktop directory."
  			sleep 1
- 			echo "It will be labeled $MY_NAME."
+ 			echo "It will be labeled ${MY_NAME}_DIR."
  			bars
  			anything
  			;;
