@@ -27,24 +27,26 @@ function feeling () {
 
 		[gG]ood)
 			clear
-			echo
 			echo "Glad to hear that!"
 			bars
+			echo
 			sleep 2
+			clear
 			;;
 	# If user answers bad, displays apology message
 	###############################################
 		[bB]ad)
 			clear
-			echo
 			echo "I am sorry to hear that!"
 			bars
+			echo
 			sleep 2
+			clear
 			;;
 	# If user gives undefined answer will ask to try again
 	######################################################
 		*)
-			echo
+			clear
 			echo "I do not understand!"
 			echo "Please try again, $MY_NAME!"
 			bars
@@ -57,15 +59,15 @@ function feeling () {
 # Function that displays an option list for input
 #################################################
 function optionslist () {
-
+	clear
 	echo "1. Display working directory"
 	bars
-	sleep 1
+	sleep 2
 	echo
 	echo "2. Create new directory named"
-	echo  "          \"${MY_NAME}_DIR\"      "
+	echo  "          \"$MY_NAME\"      "
 	bars
-	sleep 1
+	sleep 2
 	echo
 	echo "3. Exit program."
 	bars
@@ -86,35 +88,57 @@ function options () {
 		1)
 			# If input is 1 displays the current working directory
 			#+ and displays a list of directories & files in CWD
-			######################################################
-			echo
-			sleep 2
+			#####################################################
+			clear
 			echo "This is your current directory"
 			echo "and a list of all contents."
 			bars
-			sleep 1
+			sleep 2
 			echo
-			pwd; sleep 1; echo; ls -lh
+			pwd; echo; bars; echo; sleep 2; echo; ls -lh; echo; bars
+			sleep 5
 			anything
 			;;
 		2)
 			# If input is 2 makes directory on Desktop
 			##########################################
-			mkdir ~/Desktop/${MY_NAME}_DIR
- 			sleep 1
- 			echo "Your directory was made in"
- 			echo "the Desktop directory."
- 			sleep 1
- 			echo "It will be labeled ${MY_NAME}_DIR."
- 			bars
- 			anything
+
+			if [[ -d "$MY_NAME" ]]
+			then
+				sleep 2
+				clear
+				echo "Directory exist"
+				bars
+				sleep 2
+				anything
+				
+			
+			else
+				`mkdir $MY_NAME`
+				sleep 2
+				clear
+				echo "Directory made"
+				bars
+				sleep 2
+				echo
+				ls | sort
+				echo
+				bars
+				sleep 4 
+				anything
+
+			
+			fi 
+
  			;;
  		3)
 			# If input is 3
 			# User is prompted to have a great day
 			# Exits script
 			######################################
+			clear
 			echo "Have a great day $MY_NAME!"
+			bars
  			sleep 2
  			clear
 			exit
@@ -124,16 +148,18 @@ function options () {
 
 function anything () {
 
+	clear
 	echo
-	echo "Anything else, $MY_NAME?"
+	echo "Anything else, $MY_NAME? [ y/n ]"
 	bars
 	read INPUT_ADDITION
-	if [[ $INPUT_ADDITION = "yes" ]];
+	if [[ $INPUT_ADDITION = "y" ]];
 	then
 		clear
 		optionslist
 		options
 	else
+		clear
 		echo
 		echo "Have a wonderful day $MY_NAME!"
 		bars
@@ -155,39 +181,33 @@ function anything () {
 
 clear
 echo "Hello"
+bars
+echo
 sleep 3
-echo
-echo
+clear
 echo "What is your name?"
 bars
 echo
 read MY_NAME
 sleep 3
-echo
-echo
+clear
 echo "Hello, $MY_NAME - How are you today?"
 bars
 echo
-# Asking how user is - uses function feeling
-#############################################
 feeling
-
-# Displays date and gives user options on what to do
-####################################################
-echo
 printf "Today is: %(%A, %b %-d, %Y)T\n" -1
 printf "The time is: " && date +"%r" 
 bars
-sleep 5
 echo
+sleep 5
+clear
 echo "What can I do for you, $MY_NAME?"
 bars
-sleep 1
+sleep 2
 echo
 optionslist
+echo
 options
-echo
-echo
-sleep 2
+
 
 
