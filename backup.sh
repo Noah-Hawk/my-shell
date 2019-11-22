@@ -1,14 +1,15 @@
 #!/bin/bash
+#simple backup file script
 
 FILES="$@"
 for f in $FILES
 do
-	#if .bak backup file exists, read next file
+	#if .bak file exists, skips file
 	if [[ -f ~/backup/${f}.bak ]]
 	then
 		echo "Skipping $f file..."
 		continue
 	fi
-	#we are here means no backup file exists, just use cp command to copy file
+	#if no backup exists, copies file with .bak and moves it to backup directory
 	cp $f $f.bak | mv $f.bak ~/backup > /dev/null 2>&1
 done
