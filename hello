@@ -73,7 +73,10 @@ function optionslist () {
 	bars
 	echo
 	sleep 1
+	clear
 	echo "Please select an option."
+	echo
+	echo "[1]       [2]        [3]      [l]ist"
 	bars
 # Input creates INPUT_NUMBER variable
 #####################################
@@ -147,13 +150,27 @@ function options () {
  			clear
 			exit
 			;;
+			
+		l)
+			optionslist
+			options
+			;;
+		
+		*)
+			clear
+			echo "I do not understand!"
+			echo "Please try again, $MY_NAME!"
+			bars
+			sleep 2
+			optionslist
+			options
+			;;	
 	esac
 }
 
 function anything () {
 
 	clear
-	echo
 	echo "Anything else, $MY_NAME? [ y/n ]"
 	bars
 	read INPUT_ADDITION
@@ -164,7 +181,6 @@ function anything () {
 		options
 	else
 		clear
-		echo
 		echo "Have a wonderful day $MY_NAME!"
 		bars
 		sleep 2
@@ -199,7 +215,8 @@ echo "Hello, $MY_NAME - How are you today?"
 bars
 echo
 feeling
-printf "Today is: %(%A, %b %-d, %Y)T\n" -1
+printf "Today is: %(%A, %b %-d, %Y)T\n" -1 
+echo
 printf "The time is: " && date +"%r" 
 bars
 echo
