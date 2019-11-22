@@ -18,11 +18,11 @@ function bars () { echo "===================================="; }
 ###########################################
 function feeling () {
 
-	# Takes input and defines MY_FEELING variable
-	#############################################
+# Takes input and defines MY_FEELING variable
+#############################################
 	read MY_FEELING
-	# If user answers good, displays happy message
-	##############################################
+# If user answers good, displays happy message
+##############################################
 	case $MY_FEELING in
 
 		[gG]ood)
@@ -33,8 +33,8 @@ function feeling () {
 			sleep 2
 			clear
 			;;
-	# If user answers bad, displays apology message
-	###############################################
+# If user answers bad, displays apology message
+###############################################
 		[bB]ad)
 			clear
 			echo "I am sorry to hear that!"
@@ -43,8 +43,8 @@ function feeling () {
 			sleep 2
 			clear
 			;;
-	# If user gives undefined answer will ask to try again
-	######################################################
+# If user gives undefined answer will ask to try again
+######################################################
 		*)
 			clear
 			echo "I do not understand!"
@@ -75,8 +75,8 @@ function optionslist () {
 	sleep 1
 	echo "Please select an option."
 	bars
-	# Input creates INPUT_NUMBER variable
-	#####################################
+# Input creates INPUT_NUMBER variable
+#####################################
 	read INPUT_NUMBER
 }
 
@@ -86,9 +86,9 @@ function options () {
 
 	case "$INPUT_NUMBER" in
 		1)
-			# If input is 1 displays the current working directory
-			#+ and displays a list of directories & files in CWD
-			#####################################################
+# If input is 1 displays the current working directory
+#+ and displays a list of directories & files in CWD
+#####################################################
 			clear
 			echo "This is your current directory"
 			echo "and a list of all contents."
@@ -100,8 +100,12 @@ function options () {
 			anything
 			;;
 		2)
-			# If input is 2 makes directory on Desktop
-			##########################################
+# If input is 2 checks to see if directory
+#+ exists, if not, will make a directory
+#+ in current directory. If it exists, 
+#+ will tell user directory exists and 
+#+ invoke the anything function.
+##########################################
 
 			if [[ -d "$MY_NAME" ]]
 			then
@@ -132,10 +136,10 @@ function options () {
 
  			;;
  		3)
-			# If input is 3
-			# User is prompted to have a great day
-			# Exits script
-			######################################
+# If input is 3
+# User is prompted to have a great day
+# Exits script
+######################################
 			clear
 			echo "Have a great day $MY_NAME!"
 			bars
