@@ -11,5 +11,5 @@ do
 		continue
 	fi
 	#if no backup exists, copies file with .bak and moves it to backup directory
-	cp $f $f.bak | mv $f.bak ~/backup > /dev/null 2>&1
+	cp $f $f.bak && mv $f.bak ~/backup > /dev/null 2>&1
 done
