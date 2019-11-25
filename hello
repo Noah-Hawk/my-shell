@@ -200,7 +200,7 @@ function anything () {
 ##############
 
 clear
-echo "Hello"
+echo "Hello...I don't know your name."
 bars
 echo
 sleep 3
@@ -217,7 +217,7 @@ echo
 feeling
 printf "Today is: %(%A, %b %-d, %Y)T\n" -1 
 echo
-printf "The time is: " && date +"%r" 
+printf "The time is: [ " && date +"%r ]" 
 bars
 echo
 sleep 5
